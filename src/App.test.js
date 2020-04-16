@@ -1,6 +1,7 @@
 import React from "react";
-import { render } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import App from "./App";
+import ContactForm from './components/ContactForm';
 
 test("renders App without crashing", () => {
   render(<App />);
@@ -14,4 +15,10 @@ it('renders without crashing', () => {
   expect(element).toBeTruthy()
   expect(element).toBeInTheDocument()
   expect(element).toBeVisible()
+})
+
+test('all required fields have text', () => {
+  render(<ContactForm />)
+  const firstNameInput = screen.getByTestId('firstNameInput')
+  expect(firstNameInput).toBeInTheDocument()
 })
