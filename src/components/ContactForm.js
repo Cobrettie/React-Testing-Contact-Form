@@ -31,6 +31,7 @@ const ContactForm = () => {
           <input
             name="lastName"
             placeholder="luo"
+            data-testid="lastNameInput"
             ref={register({ required: true })}
           />
           {errors.lastName && (
@@ -42,7 +43,7 @@ const ContactForm = () => {
           <label htmlFor="email" placeholder="bluebill1049@hotmail.com">
             Email*
           </label>
-          <input name="email" ref={register({ required: true })} />
+          <input name="email" data-testid='emailInput' ref={register({ required: true })} />
           {errors.email && (
             <p>Looks like there was an error: {errors.email.type}</p>
           )}

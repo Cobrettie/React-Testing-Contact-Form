@@ -7,18 +7,9 @@ test("renders App without crashing", () => {
   render(<App />);
 });
 
-it('renders without crashing', () => {
-  const wrapper = render(
-    <span>Hello World</span>
-  )
-  const element = wrapper.queryByText(/hello/i)
-  expect(element).toBeTruthy()
-  expect(element).toBeInTheDocument()
-  expect(element).toBeVisible()
-})
-
-test('all required fields have text', () => {
+test('all fields are visible to user', () => {
   render(<ContactForm />)
-  const firstNameInput = screen.getByTestId('firstNameInput')
-  expect(firstNameInput).toBeInTheDocument()
+  expect(screen.getByTestId('firstNameInput')).toBeVisible()
+  expect(screen.getByTestId('lastNameInput')).toBeVisible()
+  expect(screen.getByTestId('emailInput')).toBeVisible()
 })
